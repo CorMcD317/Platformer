@@ -1,6 +1,7 @@
 import pygame
 import random
 
+
 class Ruby(pygame.sprite.Sprite):
     """A class the player must collect to earn points and health"""
 
@@ -26,12 +27,12 @@ class Ruby(pygame.sprite.Sprite):
         #Rotating
         self.ruby_sprites.append(
             pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile000.png"), (64, 64)))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile001.png"), (64, 64))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile002.png"), (64, 64))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile003.png"), (64, 64))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile004.png"), (64, 64))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile005.png"), (64, 64))
-        pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile006.png"), (64, 64))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile001.png"), (64, 64)))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile002.png"), (64, 64)))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile003.png"), (64, 64)))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile004.png"), (64, 64)))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile005.png"), (64, 64)))
+        self.ruby_sprites.append(pygame.transform.scale(pygame.image.load("./assets/images/ruby/tile006.png"), (64, 64)))
         #TODO: so we've just added an image to our list of ruby_sprites.  repeate the previous line form tile's 001 to 006
 
         #Load image and get rect
@@ -71,7 +72,7 @@ class Ruby(pygame.sprite.Sprite):
         #We don't need to update the acceleration vector because it never changes here
 
         # Calculate new kinematics values: (4, 1) + (2, 8) = (6, 9)
-        self.acceleration += self.velocity
+        self.velocity += self.acceleration
         self.velocity + 0.5 * self.acceleration
         #TODO: add self.acceleration to self.velocity.  HINT: when I say add y to x I mean x += y or x = x + y
         #TODO: add self.velocity + 0.5 * self.acceleration to self.position
@@ -82,7 +83,7 @@ class Ruby(pygame.sprite.Sprite):
         elif self.position.x > self.WINDOW_WIDTH:
             self.position.x = 0
 
-        self.position = self.rect.bottom
+        self.rect.bottom = self.position
 
         #TODO: assign self.position to self.rect.bottomleft.  HINT:  When I say assign y to x I mean x = y
 
@@ -115,10 +116,11 @@ class Ruby(pygame.sprite.Sprite):
         """Animate the ruby"""
         if self.current_sprite < len(sprite_list) - 1:
             speed += self.current_sprite
-        else : self.current_sprite = 0
+        else:
+            self.current_sprite = 0
         #TODO: check if self.current_sprite is less than len(sprite_list) - 1.  If so add speed to self.current_sprite
         #TODO: else assign 0 to self.current_sprite
 
-        sprite_list[int(self.current_sprite)] = self.image
+        self.image = sprite_list[int(self.current_sprite)]
 
         #TODO: assign sprite_list[int(self.current_sprite)] to self.image.  When I say assign y to x I mean x = y
