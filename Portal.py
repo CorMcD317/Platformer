@@ -10,7 +10,7 @@ class Portal(pygame.sprite.Sprite):
         super().__init__()
 
         #Animation frames
-        self.portal_sprites[]
+        self.portal_sprites = []
 
         #TODO: create a self.portal_sprites variable and assign [] to it.  Empty list.
 

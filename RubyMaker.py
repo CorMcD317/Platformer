@@ -48,7 +48,7 @@ class RubyMaker(pygame.sprite.Sprite):
         """Animate the ruby maker"""
         if self.current_sprite < len(sprite_list) - 1:
 
-        else :
+        else:
             self.current_sprite = 0
         #TODO: check if self.current_sprite is less than len(sprite_list) - 1.  If so add speed to self.current_sprite
         #TODO: else assign 0 to self.current_sprite
