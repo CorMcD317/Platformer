@@ -205,7 +205,8 @@ class Zombie(pygame.sprite.Sprite):
         self.direction = random.choice([-1, 1])
 
         self.current_sprite = 0
-
+        if self.direction is -1:
+            self.image = self.walk_left_sprites[self.current_sprite]
         #TODO: create self.current_sprite variable and assign 0 to it.
         #TODO: check if self.direction is -1.  If so assign self.walk_left_sprites[self.current_sprite] to self.image
         #TODO: else:  assign self.walk_right_sprites[self.current_sprite] to self.image.
