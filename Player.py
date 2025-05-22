@@ -157,8 +157,6 @@ class Player(pygame.sprite.Sprite):
         self.image = self.idle_right_sprites[self.current_sprite]
         self.rect = self.image.get_rect()
         (x, y) = self.rect.bottomleft
-
-
         self.mask = pygame.mask.from_surface(self.image)
 
         #TODO: create a self.current_sprite and 0 to it.
