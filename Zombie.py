@@ -88,7 +88,7 @@ class Zombie(pygame.sprite.Sprite):
                 "assets/images/zombie/boy/dead/Dead (8).png"), (64, 64)))
             self.die_right_sprites.append(pygame.transform.scale(pygame.image.load(
                 "assets/images/zombie/boy/dead/Dead (9).png"), (64, 64)))
-            \self.die_right_sprites.append(pygame.transform.scale(pygame.image.load(
+            self.die_right_sprites.append(pygame.transform.scale(pygame.image.load(
                 "assets/images/zombie/boy/dead/Dead (10).png"), (64, 64)))
             # TODO: repeat for Dead (2).png through Dead (10).png
 
@@ -339,7 +339,7 @@ class Zombie(pygame.sprite.Sprite):
 
         # Animate the zombie rise
         if self.animate_rise:
-            if self.direction == 1
+            if self.direction == 1:
                 self.animate(self.rise_right_sprites, 0.095)
             else:
                 self.animate(self.rise_left_sprites, 0.095)

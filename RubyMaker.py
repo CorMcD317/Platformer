@@ -47,12 +47,9 @@ class RubyMaker(pygame.sprite.Sprite):
     def animate(self, sprite_list, speed):
         """Animate the ruby maker"""
         if self.current_sprite < len(sprite_list) - 1:
-
+            self.current_sprite += speed
         else:
             self.current_sprite = 0
-        #TODO: check if self.current_sprite is less than len(sprite_list) - 1.  If so add speed to self.current_sprite
-        #TODO: else assign 0 to self.current_sprite
 
-         self.image = sprite_list[int(self.current_sprite)]
+        self.image = sprite_list[int(self.current_sprite)]
 
-        #TODO: assign sprite_list[int(self.current_sprite)] to self.image.  When I say assign y to x I mean x = y

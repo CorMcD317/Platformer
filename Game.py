@@ -45,7 +45,7 @@ class Game:
         self.score = 0
         self.round_number = 1
         self.frame_count = 0
-        self.STARTING_ZOMBIE_CREATION_TIME = self.zombie_create_time
+        self.zombie_creation_time = self.STARTING_ZOMBIE_CREATION_TIME
         self.score = 0
         self.round_number = 1
         self.frame_count = 0
@@ -142,7 +142,7 @@ class Game:
             for col in range(len(self.tile_map[row])):
                 # Dirt tiles
                 if self.tile_map[row][col] == 1:
-                    Tile(col * 32, row * 32, 1 , self.main_tile_group)
+                    Tile(col * 32, row * 32, 1, self.main_tile_group)
                     # TODO: call the Tile() constructor passing col * 32, row * 32, 1, self.main_tile_group
                 # Platform tiles
                 elif self.tile_map[row][col] == 2:
@@ -155,25 +155,26 @@ class Game:
                     Tile(col * 32, row * 32, 4, self.main_tile_group, self.platform_group)
                     # TODO: call the Tile() constructor passing col * 32, row * 32, 4, self.main_tile_group, self.platform_group
                 elif self.tile_map[row][col] == 5:
-                    Tile(col * 32, row * 32,5, self.main_tile_group, self.platform_group)
+                    Tile(col * 32, row * 32, 5, self.main_tile_group, self.platform_group)
                     # TODO: call the Tile() constructor passing col * 32, row * 32, 5, self.main_tile_group, self.platform_group
                 # Ruby Maker
                 elif self.tile_map[row][col] == 6:
-                    Tile(col * 32, row * 32, self.main_tile_group,)
+                    RubyMaker(col * 32, row * 32, self.main_tile_group, )
                     # TODO: call the RubyMaker() constructor passing in col * 32, row * 32, self.main_tile_group
                 # Portals
                 elif self.tile_map[row][col] == 7:
-                    Tile(col * 32, row * 32, "green", self.portal_group)
+                    Portal(col * 32, row * 32, "green", self.portal_group)
                     # TODO: call the Portal() constructor passing in col * 32, row * 32, "green", and self.portal_group
 
                 elif self.tile_map[row][col] == 8:
-                    Tile(col * 32, row * 32, "purple", self.portal_group)
+                    Portal(col * 32, row * 32, "purple", self.portal_group)
                     # TODO: call the Portal() constructor passing in col * 32, row * 32, "purple", and self.portal_group
                 # Player
                 elif self.tile_map[row][col] == 9:
-                    self.my_player = Player(col * 32 - 32, row * 32 + 32, self.platform_group, self.portal_group, self.bullet_group, self.WINDOW_WIDTH, self.WINDOW_HEIGHT)
+                    self.my_player = Player(col * 32 - 32, row * 32 + 32, self.platform_group, self.portal_group,
+                                            self.bullet_group, self.WINDOW_WIDTH, self.WINDOW_HEIGHT)
                     self.player_group.add(self.my_player)
-                    #TODO: assign to self.my_player the Player() constructor passing col * 32 - 32, row * 32 + 32,
+                    # TODO: assign to self.my_player the Player() constructor passing col * 32 - 32, row * 32 + 32,
                     # self.platform_group, self.portal_group, self.bullet_group,
                     # self.WINDOW_WIDTH, self.WINDOW_HEIGHT
                     # TODO: call self.player_group's add function and pass in self.my_player
@@ -469,7 +470,7 @@ class Game:
         self.zombie_group.empty()
         self.ruby_group.empty()
         self.bullet_group.empty()
-        #TODO: call .empty() on the following sprite groups
+        # TODO: call .empty() on the following sprite groups
         # zombie_group, ruby_group, bullet_group
         pygame.mixer.music.play(-1, 0.0)
         # TODO: call pygame.mixer.music.play() passing in -1, and 0.0

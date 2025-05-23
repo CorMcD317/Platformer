@@ -121,7 +121,7 @@ class Portal(pygame.sprite.Sprite):
         #TODO: assign (x, y) to self.rect.bottomleft.  When I say assign y to x I mean x = y
 
         #Add to the portal group
-        portal_group(self)
+        portal_group.add(self)
         #TODO: call portal_group's add() method and pass in self.
 
     def update(self):
@@ -131,11 +131,14 @@ class Portal(pygame.sprite.Sprite):
 
     def animate(self, sprite_list, speed):
         """Animate the portal"""
-        if self.current_sprite < len(sprite_list) - 1;
+        if self.current_sprite < len(sprite_list) - 1:
+            self.current_sprite += speed
 
-        else: 0 == self.current_sprite
+        else:
+            self.current_sprite = 0
 
-        sprite_list[int(self.current_sprite)] = self.image
+        self.image = sprite_list[int(self.current_sprite)]
+
     #TODO: check if self.current_sprite is less than len(sprite_list) - 1.  If so add speed to self.current_sprite
         #TODO: else assign 0 to self.current_sprite
 
